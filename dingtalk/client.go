@@ -25,7 +25,7 @@ type response struct {
 	ErrMsg  string `json:"errmsg"`
 }
 
-const httpTimeout = time.Duration(500) * time.Microsecond
+const httpTimeout = time.Duration(5) * time.Second
 
 func NewClient(accessToken string, secret string) *client {
 	return &client{
