@@ -28,7 +28,7 @@ func main() {
 
 ### 消息发送
 ```
-//文本
+//text
 m := NewTextMessage()
 m.SetContent("Hello")
 c := NewRobotClient(AlertRobotTest)
@@ -113,7 +113,7 @@ var robotMap = map[int]*Robot{
 	},
 }
 
-client := NewRobotClinet(dingtalk.AlertRobotSWK)
+client := NewRobotClient(dingtalk.AlertRobotSWK)
 
 ```
 
