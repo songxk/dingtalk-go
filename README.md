@@ -27,14 +27,16 @@ func main() {
 ```
 
 ### 消息发送
+#### text
 ```
-//text
 m := NewTextMessage()
 m.SetContent("Hello")
 c := NewRobotClient(AlertRobotTest)
 _, _ = c.Send(m)
+```
 
-//link
+#### link
+```
 m := NewLinkMessage()
     .SetTitle("title")
     .SetText("text")
@@ -42,14 +44,18 @@ m := NewLinkMessage()
     .SetPicUrl("https://inews.gtimg.com/newsapp_bt/0/12171811596_909/0")
 	
 NewRobotClient(AlertRobotTest).Send(m)
+```
 
-//markdown
+#### markdown
+```
 m := NewMarkdownMessage().SetTitle("title").SetText("#### 杭州天气 @188xxxxxxxx \n > 9度，西北风1级，空气良89，相对温度73%\n > ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n > ###### 10点20分发布 [天气](https://www.dingtalk.com) \n").
     SetAtMobiles([]string{"188xxxxxxxx"})
 c := NewRobotClient(AlertRobotTest)
 _, _ = c.Send(m)
+```
 
-//actioncard
+#### actioncard
+```
 m := NewActionCardMessage().SetTitle("title").
     SetText("![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)" +
         "### 乔布斯 20 年前想打造的苹果咖啡厅Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划").
@@ -70,8 +76,9 @@ m := NewActionCardMessage().SetTitle("title").
     SetBtnOrientation(ActionCardBtnVert)
 c := NewRobotClient(AlertRobotTest)
 _, _ = c.Send(m)
-
-//feedcard
+```
+#### feedcard
+```
 m := NewFeedCardMessage()
 m.AddLink(&FeedCardLink{
     Title:      "时代的火车向前开1",
@@ -92,8 +99,6 @@ m.AddLink(&FeedCardLink{
 c := NewRobotClient(AlertRobotTest)
 r, err := c.Send(m)
 fmt.Println(r, err)
-
-
 ```
 
 ### 支持配置多个机器人
