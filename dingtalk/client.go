@@ -36,7 +36,10 @@ func NewClient(accessToken string, secret string) *client {
 
 //依赖robot文件中的robotMap
 func NewRobotClient(robotId int) *client {
-	if robot, ok := robotMap[robotId]; !ok {
+	if len(conf.RobotMap) == 0 {
+		return nil
+	}
+	if robot, ok := conf.RobotMap[robotId]; !ok {
 		return nil
 	} else {
 		return &client{
@@ -47,6 +50,9 @@ func NewRobotClient(robotId int) *client {
 }
 
 func (c *client) Send(message Message) (*response, error) {
+	if c == nil {
+		return nil, errors.New("nil client")
+	}
 	buf, err := message.ToByte()
 	if err != nil {
 		return nil, err

@@ -98,7 +98,10 @@ fmt.Println(r, err)
 
 ### 支持配置多个机器人
 ```
-在robot.go文件中配置robotMap
+const (
+	AlertRobotTest = iota //test
+	AlertRobotSWK         //孙悟空
+)
 
 var robotMap = map[int]*Robot{
 	AlertRobotTest: {
@@ -112,6 +115,7 @@ var robotMap = map[int]*Robot{
 		RefGroupName: "groupName2",
 	},
 }
+dingtalk.LoadConf(robotMap)
 
 client := NewRobotClient(dingtalk.AlertRobotSWK)
 
