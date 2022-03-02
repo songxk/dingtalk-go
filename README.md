@@ -108,7 +108,7 @@ const (
 	AlertRobotSWK         //孙悟空
 )
 
-var robotMap = map[int]*Robot{
+var robotMap = map[int]*dingtalk.Robot{
 	AlertRobotTest: {
 		AccessToken:  "accesstoken1",
 		Secret:       "secret1",
